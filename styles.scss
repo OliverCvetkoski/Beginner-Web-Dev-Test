@@ -66,11 +66,12 @@ body {
 .hamburgerContainer {
   width: 70%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.95);
+  background-color: rgba(0, 0, 0, 0.96);
 
   .hamburgerMenu {
     margin-top: 5em;
     list-style-type: none;
+    margin-right: 2em;
   }
 }
 
@@ -81,17 +82,20 @@ body {
   top: 0;
   right: 0;
 
+  li {
+    padding: 20px 15px 20px;
+    border-radius: 10px;
+    background-color: white;
+    margin-top: 2em;
+  }
+
   a {
+    justify-content: center;
     color: $primary-color;
-    font-size: 25px;
+    font-size: 30px;
     font-weight: 700;
     text-decoration: none;
     display: flex;
-    margin-top: 2em;
-    margin-right: 2em;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: white;
   }
 }
 

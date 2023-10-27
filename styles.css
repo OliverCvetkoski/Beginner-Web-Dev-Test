@@ -54,11 +54,12 @@ body {
 .hamburgerContainer {
   width: 70%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.95);
+  background-color: rgba(0, 0, 0, 0.96);
 }
 .hamburgerContainer .hamburgerMenu {
   margin-top: 5em;
   list-style-type: none;
+  margin-right: 2em;
 }
 
 .showHamburgerMenu {
@@ -68,17 +69,19 @@ body {
   top: 0;
   right: 0;
 }
+.showHamburgerMenu li {
+  padding: 20px 15px 20px;
+  border-radius: 10px;
+  background-color: white;
+  margin-top: 2em;
+}
 .showHamburgerMenu a {
+  justify-content: center;
   color: #000000;
-  font-size: 25px;
+  font-size: 30px;
   font-weight: 700;
   text-decoration: none;
   display: flex;
-  margin-top: 2em;
-  margin-right: 2em;
-  padding: 10px;
-  border-radius: 10px;
-  background-color: white;
 }
 
 .mainSection {

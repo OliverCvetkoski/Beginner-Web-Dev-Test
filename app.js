@@ -31,7 +31,7 @@ toggleHamburgerMenu.addEventListener("click", function () {
     // If the menu is open, close it
     hamburgerDiv.classList.remove("showHamburgerMenu");
     document.body.removeChild(hamburgerDiv);
-    hamburgerBars.forEach(function (bar) {
+    hamburgerBars.forEach((bar) => {
       bar.style.backgroundColor = "black";
     });
     isMenuOpen = false;
@@ -40,7 +40,7 @@ toggleHamburgerMenu.addEventListener("click", function () {
     hamburgerDiv.classList.add("showHamburgerMenu");
     hamburgerDiv.appendChild(menuItems);
     document.body.appendChild(hamburgerDiv);
-    hamburgerBars.forEach(function (bar) {
+    hamburgerBars.forEach((bar) => {
       bar.style.backgroundColor = "white";
     });
     isMenuOpen = true;
