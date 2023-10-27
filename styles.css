@@ -11,23 +11,23 @@ body {
   display: flex;
   justify-content: space-between;
 }
-.header .navbar ul {
+.header .navbar .hamburgerMenu {
   display: flex;
   gap: 20px;
   align-items: center;
   margin-right: 2em;
 }
-.header .navbar ul li {
+.header .navbar .hamburgerMenu li {
   padding: 10px;
   background-color: #000000;
   border-radius: 10px;
   list-style-type: none;
   cursor: pointer;
 }
-.header .navbar ul li:hover {
+.header .navbar .hamburgerMenu li:hover {
   box-shadow: 0 0 5px 1px #000000;
 }
-.header .navbar ul li a {
+.header .navbar .hamburgerMenu li a {
   font-weight: 600;
   color: white;
   text-decoration: none;
@@ -42,12 +42,42 @@ body {
   cursor: pointer;
   padding: 10px;
   margin: 5px 0 5px 0;
+  z-index: 1;
 }
 .header .navbar .menu-toggle .bar {
   width: 25px;
   height: 3px;
-  background: #ffffff;
+  background: white;
   margin: 3px 0;
+}
+
+.hamburgerContainer {
+  width: 70%;
+  height: 100vh;
+  background-color: #000000;
+}
+.hamburgerContainer .hamburgerMenu {
+  margin-top: 5em;
+}
+
+.showHamburgerMenu {
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: 2s ease-in-out;
+}
+.showHamburgerMenu a {
+  font-size: 25px;
+  font-weight: 700;
+  text-decoration: none;
+  display: flex;
+  margin-top: 2em;
+  margin-right: 2em;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
 }
 
 .mainSection {
@@ -151,7 +181,7 @@ body {
     justify-content: center;
     margin-right: 2em;
   }
-  .header ul {
+  .header .hamburgerMenu {
     display: none !important;
   }
   .mainSection .card {

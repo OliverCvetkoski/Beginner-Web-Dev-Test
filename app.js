@@ -1,7 +1,8 @@
 // Get references to various elements on the page.
 
-const menuToggle = document.querySelector(".menu-toggle");
-const menuList = document.querySelector(".ul");
+const header = document.querySelector(".header");
+const toggleHamburgerMenu = document.querySelector(".menu-toggle");
+const menuItems = document.querySelector(".hamburgerMenu");
 const textOutput = document.querySelector(".textOutput");
 const form = document.querySelector(".form");
 const input = document.querySelector(".textInput");
@@ -20,13 +21,22 @@ form.addEventListener("submit", (e) => {
   input.value = "";
 });
 
-isMenuOpen = false;
+const hamburgerDiv = document.createElement("div");
+hamburgerDiv.classList.add("hamburgerContainer");
 
-menuToggle.addEventListener("click", function () {
-  if (!isMenuOpen) {
-    menuList.style.display = "flex";
-    isMenuOpen = true;
+let isMenuOpen = false;
+
+toggleHamburgerMenu.addEventListener("click", function () {
+  if (isMenuOpen) {
+    // If the menu is open, close it
+    hamburgerDiv.classList.remove("showHamburgerMenu");
+    document.body.removeChild(hamburgerDiv);
+    isMenuOpen = false;
   } else {
-    menuList.style.display = "none";
+    // If the menu is closed, open it
+    hamburgerDiv.classList.add("showHamburgerMenu");
+    hamburgerDiv.appendChild(menuItems);
+    document.body.appendChild(hamburgerDiv);
+    isMenuOpen = true;
   }
 });
