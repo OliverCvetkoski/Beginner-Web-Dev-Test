@@ -47,17 +47,18 @@ body {
 .header .navbar .menu-toggle .bar {
   width: 25px;
   height: 3px;
-  background: white;
+  background: #000000;
   margin: 3px 0;
 }
 
 .hamburgerContainer {
   width: 70%;
   height: 100vh;
-  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.95);
 }
 .hamburgerContainer .hamburgerMenu {
   margin-top: 5em;
+  list-style-type: none;
 }
 
 .showHamburgerMenu {
@@ -66,9 +67,9 @@ body {
   position: absolute;
   top: 0;
   right: 0;
-  transition: 2s ease-in-out;
 }
 .showHamburgerMenu a {
+  color: #000000;
   font-size: 25px;
   font-weight: 700;
   text-decoration: none;
