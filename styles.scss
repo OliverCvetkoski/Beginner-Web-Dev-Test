@@ -1,17 +1,48 @@
+// SCSS variables.
+
 $primary-color: #000000;
-$secondary-color: #28a745;
+$secondary-color: #ffffff;
+
 $button-hover: (
   box-shadow: 0 0 5px 1px $primary-color,
 );
+
+$lightButton-hover: (
+  box-shadow: 0 0 5px 1px $secondary-color,
+);
+
+$border-radius: (
+  border-radius: 10px,
+);
+
+%anchor-style {
+  padding: 10px;
+  background-color: $primary-color;
+  border-radius: map-get($border-radius, border-radius);
+  list-style-type: none;
+  cursor: pointer;
+}
+
+%button-style {
+  cursor: pointer;
+  padding: 9px 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: map-get($border-radius, border-radius);
+  color: $secondary-color;
+  background-color: $primary-color;
+}
 
 body {
   margin: 0;
   padding: 0;
 }
 
+// Header with navbar.
+
 .header {
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.534);
+  background-color: rgb(71, 71, 71);
 
   .navbar {
     display: flex;
@@ -24,18 +55,14 @@ body {
       margin-right: 2em;
 
       li {
-        padding: 10px;
-        background-color: $primary-color;
-        border-radius: 10px;
-        list-style-type: none;
-        cursor: pointer;
+        @extend %anchor-style;
 
         &:hover {
           box-shadow: map-get($button-hover, box-shadow);
         }
         a {
           font-weight: 600;
-          color: white;
+          color: $secondary-color;
           text-decoration: none;
         }
       }
@@ -45,6 +72,7 @@ body {
       font-size: 28px;
       margin-left: 1em;
     }
+
     .menu-toggle {
       display: none;
       flex-direction: column;
@@ -56,17 +84,19 @@ body {
       .bar {
         width: 25px;
         height: 3px;
-        background: $primary-color;
+        background: $secondary-color;
         margin: 3px 0;
       }
     }
   }
 }
 
+// Hamburger Menu for screens smaller than 768px.
+
 .hamburgerContainer {
   width: 70%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.96);
+  background-color: $primary-color;
 
   .hamburgerMenu {
     margin-top: 5em;
@@ -83,9 +113,9 @@ body {
   right: 0;
 
   li {
-    padding: 20px 15px 20px;
-    border-radius: 10px;
-    background-color: white;
+    padding: 10px 15px 10px;
+    border-radius: map-get($border-radius, border-radius);
+    background-color: $secondary-color;
     margin-top: 2em;
   }
 
@@ -99,6 +129,33 @@ body {
   }
 }
 
+// Div and Button for toggling dark and light mode.
+
+.toggleBgColorDiv {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+
+  .toggleBgColorBtn {
+    @extend %button-style;
+
+    &:hover {
+      box-shadow: map-get($button-hover, box-shadow);
+    }
+  }
+
+  .lightModeBtn {
+    background-color: $secondary-color;
+    color: $primary-color;
+
+    &:hover {
+      box-shadow: map-get($lightButton-hover, box-shadow);
+    }
+  }
+}
+
+// Main Section that has two cards with paragraphs.
+
 .mainSection {
   display: flex;
   flex-wrap: wrap;
@@ -106,8 +163,9 @@ body {
   align-items: center;
 
   .card {
+    width: 90%;
     padding: 2em;
-    background-color: rgba(0, 0, 0, 0.151);
+    background-color: rgba(219, 214, 214, 0.6);
     margin-top: 2em;
     display: flex;
     justify-content: center;
@@ -130,12 +188,8 @@ body {
       a {
         font-weight: 600;
         text-decoration: none;
-        padding: 10px;
-        color: white;
-        background-color: $primary-color;
-        border-radius: 10px;
-        cursor: pointer;
-
+        @extend %anchor-style;
+        color: $secondary-color;
         &:hover {
           box-shadow: map-get($button-hover, box-shadow);
         }
@@ -145,10 +199,12 @@ body {
     .img {
       max-width: 100%;
       height: auto;
-      border-radius: 10px;
+      border-radius: map-get($border-radius, border-radius);
     }
   }
 }
+
+// Form Section.
 
 .formSection {
   padding: 5em 0;
@@ -168,23 +224,26 @@ body {
     gap: 20px;
 
     .formSubmitBtn {
-      cursor: pointer;
-      padding: 9px 15px;
-      font-weight: 600;
-      border: none;
-      border-radius: 10px;
-      color: white;
-      background-color: $primary-color;
+      @extend %button-style;
 
       &:hover {
         box-shadow: map-get($button-hover, box-shadow);
       }
     }
 
+    .formSubmitBtnLight {
+      background-color: $secondary-color;
+      color: $primary-color;
+
+      &:hover {
+        box-shadow: map-get($lightButton-hover, box-shadow);
+      }
+    }
+
     .textInput {
       padding: 7px;
       border: 2px solid $primary-color;
-      border-radius: 10px;
+      border-radius: map-get($border-radius, border-radius);
 
       &:hover {
         box-shadow: 0 0 5px 1px $primary-color;
@@ -197,15 +256,20 @@ body {
   }
 }
 
+// Footer.
+
 .footer {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: $primary-color;
-  color: white;
+  color: $secondary-color;
   height: 10em;
+  border-top: 1px solid $secondary-color;
 }
+
+// Media Queries.
 
 @media (max-width: 768px) {
   .header {
@@ -224,6 +288,7 @@ body {
     .card {
       padding: 1.5em;
       display: grid;
+      width: 100%;
 
       h2 {
         padding-bottom: 1em;
