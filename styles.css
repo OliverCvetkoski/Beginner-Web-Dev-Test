@@ -1,12 +1,4 @@
-.header .navbar .hamburgerMenu .bar3, .header .navbar .hamburgerMenu .bar2, .header .navbar .hamburgerMenu .bar1 {
-  width: 25px;
-  height: 3px;
-  background: #ffffff;
-  margin: 3px 0;
-  transition: 0.3s ease-in-out;
-}
-
-.mainSection .card .readMoreDiv a, .header .navbar .menuItems li {
+.mainSection .card .readMoreDiv a, .menu ul li {
   padding: 10px;
   background-color: #000000;
   border-radius: 10px;
@@ -29,71 +21,63 @@ body {
   padding: 0;
 }
 
-.header {
+header {
   width: 100%;
-  background-color: rgb(71, 71, 71);
-}
-.header .navbar {
+  height: 5em;
   display: flex;
   justify-content: space-between;
+  background-color: #525252;
 }
-.header .navbar .menuItems {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  margin-right: 2em;
-}
-.header .navbar .menuItems li:hover {
-  box-shadow: 0 0 5px 2px #000000;
-}
-.header .navbar .menuItems li a {
-  font-weight: 600;
-  color: #ffffff;
-  text-decoration: none;
-}
-.header .navbar h1 {
-  font-size: 28px;
+header h1 {
   margin-left: 1em;
 }
-.header .navbar .hamburgerMenu {
+
+.menu-toggle-checkbox {
   display: none;
-  flex-direction: column;
-  cursor: pointer;
-  padding: 10px;
-  margin: 5px 0 5px 0;
-  z-index: 1;
-}
-.hamburgerContainer {
-  width: 70%;
-  height: 100vh;
-  background-color: #000000;
-}
-.hamburgerContainer .menuItems {
-  margin-top: 5em;
-  list-style-type: none;
-  margin-right: 2em;
 }
 
-.showHamburgerMenu {
+.menu-toggle-label {
+  display: none;
+}
+
+.menu-icon {
+  width: 30px;
+  height: 20px;
   display: flex;
-  justify-content: flex-end;
-  position: absolute;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.menu-icon .bar {
+  width: 30px;
+  height: 4px;
+  background-color: #ffffff;
+  transition: 0.4s;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
   top: 0;
   right: 0;
 }
-.showHamburgerMenu li {
-  padding: 10px 15px 10px;
-  border-radius: 10px;
-  background-color: #ffffff;
-  margin-top: 2em;
-}
-.showHamburgerMenu a {
-  justify-content: center;
-  color: #000000;
-  font-size: 30px;
-  font-weight: 700;
-  text-decoration: none;
+.menu ul {
+  list-style: none;
+  padding: 0;
   display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-right: 2em;
+}
+.menu ul li {
+  justify-content: center;
+}
+.menu ul li:hover {
+  box-shadow: 0 0 5px 2px #000000;
+}
+.menu ul li a {
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .toggleBgColorContainer {
@@ -208,13 +192,42 @@ body {
 }
 
 @media (max-width: 768px) {
-  .header .navbar .hamburgerMenu {
-    display: flex;
-    justify-content: center;
-    margin-right: 2em;
+  .menu {
+    display: none;
+    background-color: #000000;
   }
-  .header .menuItems {
-    display: none !important;
+  .menu ul {
+    display: grid;
+    justify-content: center;
+    margin-top: 5em;
+    font-size: 28px;
+  }
+  .menu-toggle-label {
+    display: block;
+    position: absolute;
+    top: 2em;
+    right: 2em;
+    cursor: pointer;
+    z-index: 3;
+  }
+  .menu-toggle-checkbox:checked + .menu-toggle-label .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+  .menu-toggle-checkbox:checked + .menu-toggle-label .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle-checkbox:checked + .menu-toggle-label .bar:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+  .menu-toggle-checkbox:checked ~ .menu {
+    display: block;
+    justify-content: center;
+    width: 60%;
+    height: 100vh;
+    z-index: 2;
+  }
+  .menu-toggle-checkbox:checked ~ .menu ul {
+    margin-left: 2em;
   }
   .mainSection .card {
     border-radius: 0;

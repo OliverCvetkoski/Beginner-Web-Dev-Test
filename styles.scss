@@ -46,97 +46,70 @@ body {
   padding: 0;
 }
 
-// Header with navbar.
+// Header with navbar and hamburger menu on screens smaller than 768px.
 
-.header {
+header {
   width: 100%;
-  background-color: rgb(71, 71, 71);
-
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-
-    .menuItems {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-      margin-right: 2em;
-
-      li {
-        @extend %anchor-style;
-
-        &:hover {
-          box-shadow: map-get($darkShadow-hover, box-shadow);
-        }
-        a {
-          font-weight: 600;
-          color: $secondary-color;
-          text-decoration: none;
-        }
-      }
-    }
-
-    h1 {
-      font-size: 28px;
-      margin-left: 1em;
-    }
-
-    .hamburgerMenu {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      padding: 10px;
-      margin: 5px 0 5px 0;
-      z-index: 1;
-
-      .bar1 {
-        @extend %bars;
-      }
-      .bar2 {
-        @extend %bars;
-      }
-      .bar3 {
-        @extend %bars;
-      }
-    }
-  }
-}
-
-// Hamburger Menu for screens smaller than 768px.
-
-.hamburgerContainer {
-  width: 70%;
-  height: 100vh;
-  background-color: $primary-color;
-
-  .menuItems {
-    margin-top: 5em;
-    list-style-type: none;
-    margin-right: 2em;
-  }
-}
-
-.showHamburgerMenu {
+  height: 5em;
   display: flex;
-  justify-content: flex-end;
-  position: absolute;
+  justify-content: space-between;
+  background-color: #525252;
+
+  h1 {
+    margin-left: 1em;
+  }
+}
+
+.menu-toggle-checkbox {
+  display: none;
+}
+
+.menu-toggle-label {
+  display: none;
+}
+
+.menu-icon {
+  width: 30px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .bar {
+    width: 30px;
+    height: 4px;
+    background-color: $secondary-color;
+    transition: 0.4s;
+  }
+}
+
+.menu {
+  display: flex;
+  align-items: center;
   top: 0;
   right: 0;
 
-  li {
-    padding: 10px 15px 10px;
-    border-radius: map-get($border-radius, border-radius);
-    background-color: $secondary-color;
-    margin-top: 2em;
-  }
-
-  a {
-    justify-content: center;
-    color: $primary-color;
-    font-size: 30px;
-    font-weight: 700;
-    text-decoration: none;
+  ul {
+    list-style: none;
+    padding: 0;
     display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-right: 2em;
+
+    li {
+      justify-content: center;
+      @extend %anchor-style;
+
+      &:hover {
+        box-shadow: map-get($darkShadow-hover, box-shadow);
+      }
+      a {
+        font-weight: 600;
+        color: $secondary-color;
+        text-decoration: none;
+      }
+    }
   }
 }
 
@@ -290,18 +263,51 @@ body {
 // Media Queries.
 
 @media (max-width: 768px) {
-  .header {
-    .navbar {
-      .hamburgerMenu {
-        display: flex;
-        justify-content: center;
-        margin-right: 2em;
-      }
-    }
-    .menuItems {
-      display: none !important;
+  .menu {
+    display: none;
+    background-color: #000000;
+
+    ul {
+      display: grid;
+      justify-content: center;
+      margin-top: 5em;
+      font-size: 28px;
     }
   }
+
+  .menu-toggle-label {
+    display: block;
+    position: absolute;
+    top: 2em;
+    right: 2em;
+    cursor: pointer;
+    z-index: 3;
+  }
+
+  .menu-toggle-checkbox:checked + .menu-toggle-label .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  .menu-toggle-checkbox:checked + .menu-toggle-label .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle-checkbox:checked + .menu-toggle-label .bar:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  .menu-toggle-checkbox:checked ~ .menu {
+    display: block;
+    justify-content: center;
+    width: 60%;
+    height: 100vh;
+    z-index: 2;
+
+    ul {
+      margin-left: 2em;
+    }
+  }
+
   .mainSection {
     .card {
       border-radius: 0;
@@ -318,6 +324,7 @@ body {
       }
     }
   }
+
   .formSection {
     .textOutput {
       margin-top: 1em;

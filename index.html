@@ -11,21 +11,24 @@
     <title>Cat Shelter</title>
   </head>
   <body>
-    <div class="header">
-      <nav class="navbar">
-        <h1>Cat Shelter</h1>
-        <div class="hamburgerMenu">
-          <div class="bar1"></div>
-          <div class="bar2"></div>
-          <div class="bar3"></div>
+    <header>
+      <h1>Cat Shelter</h1>
+      <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox" />
+      <label for="menu-toggle" class="menu-toggle-label">
+        <div class="menu-icon">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
         </div>
-        <ul class="menuItems">
+      </label>
+      <nav class="menu">
+        <ul>
           <li><a href="#">Home</a></li>
-          <li><a href="#">About Us</a></li>
+          <li><a href="#">About</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
       </nav>
-    </div>
+    </header>
     <div class="toggleBgColorContainer">
       <button class="toggleBgColorBtn">Dark Mode</button>
     </div>
