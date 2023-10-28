@@ -1,4 +1,12 @@
-.mainSection .card .readMoreDiv a, .header .navbar .hamburgerMenu li {
+.header .navbar .hamburgerMenu .bar3, .header .navbar .hamburgerMenu .bar2, .header .navbar .hamburgerMenu .bar1 {
+  width: 25px;
+  height: 3px;
+  background: #ffffff;
+  margin: 3px 0;
+  transition: 0.3s ease-in-out;
+}
+
+.mainSection .card .readMoreDiv a, .header .navbar .menuItems li {
   padding: 10px;
   background-color: #000000;
   border-radius: 10px;
@@ -6,7 +14,7 @@
   cursor: pointer;
 }
 
-.formSection .form .formSubmitBtn, .toggleBgColorDiv .toggleBgColorBtn {
+.formSection .form .formSubmitBtn, .toggleBgColorContainer .toggleBgColorBtn {
   cursor: pointer;
   padding: 9px 15px;
   font-weight: 600;
@@ -29,16 +37,16 @@ body {
   display: flex;
   justify-content: space-between;
 }
-.header .navbar .hamburgerMenu {
+.header .navbar .menuItems {
   display: flex;
   gap: 20px;
   align-items: center;
   margin-right: 2em;
 }
-.header .navbar .hamburgerMenu li:hover {
-  box-shadow: 0 0 5px 1px #000000;
+.header .navbar .menuItems li:hover {
+  box-shadow: 0 0 5px 2px #000000;
 }
-.header .navbar .hamburgerMenu li a {
+.header .navbar .menuItems li a {
   font-weight: 600;
   color: #ffffff;
   text-decoration: none;
@@ -47,7 +55,7 @@ body {
   font-size: 28px;
   margin-left: 1em;
 }
-.header .navbar .menu-toggle {
+.header .navbar .hamburgerMenu {
   display: none;
   flex-direction: column;
   cursor: pointer;
@@ -55,19 +63,12 @@ body {
   margin: 5px 0 5px 0;
   z-index: 1;
 }
-.header .navbar .menu-toggle .bar {
-  width: 25px;
-  height: 3px;
-  background: #ffffff;
-  margin: 3px 0;
-}
-
 .hamburgerContainer {
   width: 70%;
   height: 100vh;
   background-color: #000000;
 }
-.hamburgerContainer .hamburgerMenu {
+.hamburgerContainer .menuItems {
   margin-top: 5em;
   list-style-type: none;
   margin-right: 2em;
@@ -95,20 +96,20 @@ body {
   display: flex;
 }
 
-.toggleBgColorDiv {
+.toggleBgColorContainer {
   display: flex;
   justify-content: center;
   margin-top: 2em;
 }
-.toggleBgColorDiv .toggleBgColorBtn:hover {
-  box-shadow: 0 0 5px 1px #000000;
+.toggleBgColorContainer .toggleBgColorBtn:hover {
+  box-shadow: 0 0 5px 2px #000000;
 }
-.toggleBgColorDiv .lightModeBtn {
+.toggleBgColorContainer .lightModeBtn {
   background-color: #ffffff;
   color: #000000;
 }
-.toggleBgColorDiv .lightModeBtn:hover {
-  box-shadow: 0 0 5px 1px #ffffff;
+.toggleBgColorContainer .lightModeBtn:hover {
+  box-shadow: 0 0 5px 3px #ffffff;
 }
 
 .mainSection {
@@ -119,8 +120,9 @@ body {
 }
 .mainSection .card {
   width: 90%;
+  border-radius: 10px;
   padding: 2em;
-  background-color: rgba(219, 214, 214, 0.6);
+  background-color: rgb(163, 161, 161);
   margin-top: 2em;
   display: flex;
   justify-content: center;
@@ -145,9 +147,9 @@ body {
   color: #ffffff;
 }
 .mainSection .card .readMoreDiv a:hover {
-  box-shadow: 0 0 5px 1px #000000;
+  box-shadow: 0 0 5px 2px #000000;
 }
-.mainSection .card .img {
+.mainSection .card .cardImg {
   max-width: 100%;
   height: auto;
   border-radius: 10px;
@@ -170,14 +172,14 @@ body {
   gap: 20px;
 }
 .formSection .form .formSubmitBtn:hover {
-  box-shadow: 0 0 5px 1px #000000;
+  box-shadow: 0 0 5px 2px #000000;
 }
 .formSection .form .formSubmitBtnLight {
   background-color: #ffffff;
   color: #000000;
 }
 .formSection .form .formSubmitBtnLight:hover {
-  box-shadow: 0 0 5px 1px #ffffff;
+  box-shadow: 0 0 5px 3px #ffffff;
 }
 .formSection .form .textInput {
   padding: 7px;
@@ -185,10 +187,13 @@ body {
   border-radius: 10px;
 }
 .formSection .form .textInput:hover {
-  box-shadow: 0 0 5px 1px #000000;
+  box-shadow: 0 0 5px 2px #000000;
 }
 .formSection .form .textInput:focus {
   outline: none;
+}
+.formSection .form .textInputDark:hover {
+  box-shadow: 0 0 5px 3px #ffffff;
 }
 
 .footer {
@@ -203,15 +208,16 @@ body {
 }
 
 @media (max-width: 768px) {
-  .header .navbar .menu-toggle {
+  .header .navbar .hamburgerMenu {
     display: flex;
     justify-content: center;
     margin-right: 2em;
   }
-  .header .hamburgerMenu {
+  .header .menuItems {
     display: none !important;
   }
   .mainSection .card {
+    border-radius: 0;
     padding: 1.5em;
     display: grid;
     width: 100%;

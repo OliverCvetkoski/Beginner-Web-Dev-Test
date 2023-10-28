@@ -3,17 +3,25 @@
 $primary-color: #000000;
 $secondary-color: #ffffff;
 
-$button-hover: (
-  box-shadow: 0 0 5px 1px $primary-color,
+$darkShadow-hover: (
+  box-shadow: 0 0 5px 2px $primary-color,
 );
 
-$lightButton-hover: (
-  box-shadow: 0 0 5px 1px $secondary-color,
+$lightShadow-hover: (
+  box-shadow: 0 0 5px 3px $secondary-color,
 );
 
 $border-radius: (
   border-radius: 10px,
 );
+
+%bars {
+  width: 25px;
+  height: 3px;
+  background: $secondary-color;
+  margin: 3px 0;
+  transition: 0.3s ease-in-out;
+}
 
 %anchor-style {
   padding: 10px;
@@ -48,7 +56,7 @@ body {
     display: flex;
     justify-content: space-between;
 
-    .hamburgerMenu {
+    .menuItems {
       display: flex;
       gap: 20px;
       align-items: center;
@@ -58,7 +66,7 @@ body {
         @extend %anchor-style;
 
         &:hover {
-          box-shadow: map-get($button-hover, box-shadow);
+          box-shadow: map-get($darkShadow-hover, box-shadow);
         }
         a {
           font-weight: 600;
@@ -73,7 +81,7 @@ body {
       margin-left: 1em;
     }
 
-    .menu-toggle {
+    .hamburgerMenu {
       display: none;
       flex-direction: column;
       cursor: pointer;
@@ -81,11 +89,14 @@ body {
       margin: 5px 0 5px 0;
       z-index: 1;
 
-      .bar {
-        width: 25px;
-        height: 3px;
-        background: $secondary-color;
-        margin: 3px 0;
+      .bar1 {
+        @extend %bars;
+      }
+      .bar2 {
+        @extend %bars;
+      }
+      .bar3 {
+        @extend %bars;
       }
     }
   }
@@ -98,7 +109,7 @@ body {
   height: 100vh;
   background-color: $primary-color;
 
-  .hamburgerMenu {
+  .menuItems {
     margin-top: 5em;
     list-style-type: none;
     margin-right: 2em;
@@ -131,7 +142,7 @@ body {
 
 // Div and Button for toggling dark and light mode.
 
-.toggleBgColorDiv {
+.toggleBgColorContainer {
   display: flex;
   justify-content: center;
   margin-top: 2em;
@@ -140,7 +151,7 @@ body {
     @extend %button-style;
 
     &:hover {
-      box-shadow: map-get($button-hover, box-shadow);
+      box-shadow: map-get($darkShadow-hover, box-shadow);
     }
   }
 
@@ -149,12 +160,12 @@ body {
     color: $primary-color;
 
     &:hover {
-      box-shadow: map-get($lightButton-hover, box-shadow);
+      box-shadow: map-get($lightShadow-hover, box-shadow);
     }
   }
 }
 
-// Main Section that has two cards with paragraphs.
+// Main Section with two cards.
 
 .mainSection {
   display: flex;
@@ -164,8 +175,9 @@ body {
 
   .card {
     width: 90%;
+    border-radius: map-get($border-radius, border-radius);
     padding: 2em;
-    background-color: rgba(219, 214, 214, 0.6);
+    background-color: rgb(163, 161, 161);
     margin-top: 2em;
     display: flex;
     justify-content: center;
@@ -191,12 +203,12 @@ body {
         @extend %anchor-style;
         color: $secondary-color;
         &:hover {
-          box-shadow: map-get($button-hover, box-shadow);
+          box-shadow: map-get($darkShadow-hover, box-shadow);
         }
       }
     }
 
-    .img {
+    .cardImg {
       max-width: 100%;
       height: auto;
       border-radius: map-get($border-radius, border-radius);
@@ -227,7 +239,7 @@ body {
       @extend %button-style;
 
       &:hover {
-        box-shadow: map-get($button-hover, box-shadow);
+        box-shadow: map-get($darkShadow-hover, box-shadow);
       }
     }
 
@@ -236,7 +248,7 @@ body {
       color: $primary-color;
 
       &:hover {
-        box-shadow: map-get($lightButton-hover, box-shadow);
+        box-shadow: map-get($lightShadow-hover, box-shadow);
       }
     }
 
@@ -246,11 +258,17 @@ body {
       border-radius: map-get($border-radius, border-radius);
 
       &:hover {
-        box-shadow: 0 0 5px 1px $primary-color;
+        box-shadow: map-get($darkShadow-hover, box-shadow);
       }
 
       &:focus {
         outline: none;
+      }
+    }
+
+    .textInputDark {
+      &:hover {
+        box-shadow: map-get($lightShadow-hover, box-shadow);
       }
     }
   }
@@ -274,18 +292,19 @@ body {
 @media (max-width: 768px) {
   .header {
     .navbar {
-      .menu-toggle {
+      .hamburgerMenu {
         display: flex;
         justify-content: center;
         margin-right: 2em;
       }
     }
-    .hamburgerMenu {
+    .menuItems {
       display: none !important;
     }
   }
   .mainSection {
     .card {
+      border-radius: 0;
       padding: 1.5em;
       display: grid;
       width: 100%;
