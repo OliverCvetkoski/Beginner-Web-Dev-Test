@@ -222,7 +222,7 @@ header h1 {
   .menu-toggle-checkbox:checked ~ .menu {
     display: block;
     justify-content: center;
-    width: 60%;
+    width: 50%;
     height: 100vh;
     z-index: 2;
   }
