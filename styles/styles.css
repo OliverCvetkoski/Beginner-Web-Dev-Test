@@ -30,7 +30,8 @@ header {
 }
 header h1 {
   margin-left: 2em;
-  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .menu-toggle-checkbox {
