@@ -1,14 +1,6 @@
 class PageManager {
   constructor() {
-    this.textOutput = document.querySelector(".textOutput");
-    this.form = document.querySelector(".form");
-    this.input = document.querySelector(".textInput");
-    this.copyrightDiv = document.querySelector(".copyright");
-    this.darkModeBtn = document.querySelector(".toggleBgColorBtn");
-    this.formSubmitBtn = document.querySelector(".formSubmitBtn");
-
     this.isDarkMode = false;
-
     this.initialize();
   }
 
@@ -39,9 +31,21 @@ class PageManager {
     this.isDarkMode = !this.isDarkMode;
   }
 
+  // Function to initialize the query selectors.
+
+  initializeQuerySelectors() {
+    this.textOutput = document.querySelector(".textOutput");
+    this.form = document.querySelector(".form");
+    this.input = document.querySelector(".textInput");
+    this.copyrightDiv = document.querySelector(".copyright");
+    this.darkModeBtn = document.querySelector(".toggleBgColorBtn");
+    this.formSubmitBtn = document.querySelector(".formSubmitBtn");
+  }
+
   // Initializes the PageManager instance by setting up event listeners and updating the copyright.
 
   initialize() {
+    this.initializeQuerySelectors();
     this.updateCopyright();
     this.form.addEventListener("submit", this.handleFormSubmission.bind(this));
     this.darkModeBtn.addEventListener("click", this.toggleDarkMode.bind(this));
