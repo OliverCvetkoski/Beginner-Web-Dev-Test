@@ -48,7 +48,8 @@ header {
   background-color: #525252;
 
   h1 {
-    margin-left: 1em;
+    margin-left: 2em;
+    position: relative;
   }
 }
 
@@ -314,6 +315,12 @@ header {
       p {
         padding: 0;
       }
+    }
+  }
+  header {
+    h1 {
+      font-size: 30px;
+      margin-left: 1em;
     }
   }
 
