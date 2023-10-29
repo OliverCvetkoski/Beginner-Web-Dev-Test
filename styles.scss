@@ -15,14 +15,6 @@ $border-radius: (
   border-radius: 10px,
 );
 
-%bars {
-  width: 25px;
-  height: 3px;
-  background: $secondary-color;
-  margin: 3px 0;
-  transition: 0.3s ease-in-out;
-}
-
 %anchor-style {
   padding: 10px;
   background-color: $primary-color;

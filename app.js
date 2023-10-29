@@ -7,12 +7,12 @@ const copyrightDiv = document.querySelector(".copyright");
 const darkModeBtn = document.querySelector(".toggleBgColorBtn");
 const formSubmitBtn = document.querySelector(".formSubmitBtn");
 
-// Getting the current year and displaying it in the footer.
+// Getting the current year and displaying it in the footer
 
 const currentYear = new Date().getFullYear();
 copyrightDiv.innerHTML = `&copy; Oliver Cvetkoski  ${currentYear}`;
 
-// Function for handling the form submission and displaying the input value in a paragraph.
+// Function for handling the form submission and displaying the input value in a paragraph
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
